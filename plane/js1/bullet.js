@@ -1,4 +1,5 @@
 
+'user strict'
 class Father {
 	constructor() {
 	    //属性
@@ -25,8 +26,8 @@ class Bullet extends Father{
 	//移动
 	move(){
 		
-		var that = this;
-		this.timer = setInterval(function(){
+		let that = this;
+		this.timer = setInterval(()=>{
 			//var that =this;
 			var y = that.ele.offsetTop - 8;
 			if (y < -18) {
@@ -50,10 +51,10 @@ class Bullet extends Father{
 		this.ele.className = "bullet-die";
 		
 		//爆炸动画
-		var dieImgs = ["images/die1.png", "images/die2.png"];
+		let [dieImgs] = [["images/die1.png", "images/die2.png"]];
 		var i = 0;
-		var that = this;
-		var dieTimer = setInterval(function(){
+		let that = this;
+		var dieTimer = setInterval(()=>{
 			if (i >= 1){
 				clearInterval(dieTimer); //关闭定时器
 				gameEngine.ele.removeChild(that.ele); //移除子弹节点
